@@ -39,15 +39,20 @@ public class Interface{
             //calculate information needed for drawing bars
             int barHeight = (int) (((double) Globals.array.get(i) / maxElement) * (window.maxy()-Globals.VERTICAL_PADDING));
             int yTop = window.maxy() - barHeight;
-
-            if(Globals.changedElements.get(i)){
+            int widthMult = 1;
+            if(i == Globals.hi){
                 g.setColor(Color.red);
+                
+            }
+            else if (i == Globals.lo){
+                g.setColor(Color.blue);
+               
             }
             else {
                 g.setColor(Color.white);
             }
 
-            g.fillRect(barWidth * i + HORIZONTAL_PADDING, yTop - (Globals.VERTICAL_PADDING/2), barWidth, barHeight);
+            g.fillRect(barWidth * i + HORIZONTAL_PADDING, yTop - (Globals.VERTICAL_PADDING/2), barWidth*widthMult, barHeight);
                 
             }
         g.drawString("Array Accesses: " + Globals.ticks, window.maxx()/2 , window.maxy()-100);

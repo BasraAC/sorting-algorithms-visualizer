@@ -1,9 +1,11 @@
 import java.util.*;
 public class Globals{
     public static List<Integer> array = null; 
-    public static List<Boolean> changedElements = new ArrayList<>();
+    public static int lo = -1;
+    public static int hi = -1;
+
     public static int ticks = 0;
-    public static int GLOBAL_SLEEP = 50; //ms
+    public static int GLOBAL_SLEEP = 0; //ms
 
     //graphics constants
     public static final int CONSOLE_COLS= 160;

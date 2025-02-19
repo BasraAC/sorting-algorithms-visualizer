@@ -28,29 +28,29 @@ public class Utils{
 
     public static void swapAndTick(List<Integer> arr, int index1, int index2) {
         // Create a snapshot of the current state before swapping
-        List<Integer> previousState = new ArrayList<>(arr);
+        
         
         // Swap the elements at index1 and index2 in the original list
         Collections.swap(arr, index1, index2);
-        
+        Globals.lo = index1;
+        Globals.hi = index2;
+
         // Update the global array (if that's required by your application logic)
         Globals.array = arr;
         
         // Call tick with the previous state to compare with the new state
-        tick(previousState);
+        tick(Globals.array);
     }
 
     public static void tick(List<Integer> arr){
-        //widow.nextChar();
-
-        List<Boolean> newChanges = compareLists(Globals.array, arr);
     
-        // Modify the existing list instead of replacing it
-        Globals.changedElements.clear();
-        Globals.changedElements.addAll(newChanges);
+       
         Globals.ticks++;
         Interface.updateGraphics();
-        sleepMs(Globals.GLOBAL_SLEEP);
+        if(Globals.GLOBAL_SLEEP > 0){
+            sleepMs(Globals.GLOBAL_SLEEP);
+        }
+        
     }
 
 }
