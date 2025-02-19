@@ -1,6 +1,6 @@
 @echo off
 echo Cleaning up old class files...
-
+cd src
 :: Delete all .class files in the current directory and subdirectories
 del /s /q *.class
 
